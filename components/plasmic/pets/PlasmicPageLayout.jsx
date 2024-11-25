@@ -21,8 +21,17 @@ import {
   DataCtxReader as DataCtxReader__,
   useDataEnv
 } from "@plasmicapp/react-web/lib/host";
+import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
+import {
+  executePlasmicDataOp,
+  usePlasmicDataOp,
+  usePlasmicInvalidate
+} from "@plasmicapp/react-web/lib/data-sources";
 import { RichLayout } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-layout";
 import { LoadingBoundary } from "@plasmicpkgs/plasmic-basic-components";
+import { FormWrapper } from "@plasmicpkgs/antd5/skinny/SchemaForm";
+import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
+import { RichTable } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-table";
 import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
@@ -67,6 +76,45 @@ function PlasmicPageLayout__RenderFunc(props) {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
   const currentUser = useCurrentUser?.() || {};
+  let [$queries, setDollarQueries] = React.useState({});
+  const dataSourcesCtx = usePlasmicDataSourceContext();
+  const plasmicInvalidate = usePlasmicInvalidate();
+  const new$Queries = {
+    query: usePlasmicDataOp(() => {
+      return {
+        sourceId: "kYjAKnpr8jBAxvPZY1mcUk",
+        opId: "dffdab86-1045-4cc3-8bc8-baf61426f4be",
+        userArgs: {},
+        cacheKey: `plasmic.$.dffdab86-1045-4cc3-8bc8-baf61426f4be.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
+    }),
+    getServices: usePlasmicDataOp(() => {
+      return {
+        sourceId: "kYjAKnpr8jBAxvPZY1mcUk",
+        opId: "dffdab86-1045-4cc3-8bc8-baf61426f4be",
+        userArgs: {},
+        cacheKey: `plasmic.$.dffdab86-1045-4cc3-8bc8-baf61426f4be.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
+    }),
+    getServices2: usePlasmicDataOp(() => {
+      return {
+        sourceId: "kYjAKnpr8jBAxvPZY1mcUk",
+        opId: "dffdab86-1045-4cc3-8bc8-baf61426f4be",
+        userArgs: {},
+        cacheKey: `plasmic.$.dffdab86-1045-4cc3-8bc8-baf61426f4be.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
+    })
+  };
+  if (Object.keys(new$Queries).some(k => new$Queries[k] !== $queries[k])) {
+    setDollarQueries(new$Queries);
+    $queries = new$Queries;
+  }
   return (
     <RichLayout
       data-plasmic-name={"root"}
@@ -135,19 +183,220 @@ function PlasmicPageLayout__RenderFunc(props) {
                         sty.h1__vf0Vk
                       )}
                     >
-                      {"Untitled page"}
+                      {"Dashboard"}
                     </h1>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__wxMrU
-                      )}
-                    >
-                      {
-                        "Press the big blue + button to insert components like Tables, Text, Buttons, and Forms.\n\nJoin our Slack Community (icon in bottom left) for help!"
-                      }
-                    </div>
+                    {(() => {
+                      const child$Props = {
+                        className: classNames(
+                          "__wab_instance",
+                          sty.form__tys8U
+                        ),
+                        data: {
+                          sourceId: "kYjAKnpr8jBAxvPZY1mcUk",
+                          opId: "20d61462-5bc7-4b37-822a-583d2afe04ef",
+                          userArgs: {},
+                          cacheKey: `plasmic.$.${(() => {
+                            try {
+                              return "getSchema";
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "";
+                              }
+                              throw e;
+                            }
+                          })()}.$.20d61462-5bc7-4b37-822a-583d2afe04ef.$.`,
+                          invalidatedKeys: null,
+                          roleId: null
+                        },
+                        dataFormItems: (() => {
+                          const __composite = [
+                            {
+                              key: "id",
+                              inputType: "Text",
+                              fieldId: "id",
+                              label: "id",
+                              name: "id",
+                              hidden: null
+                            },
+                            {
+                              key: "created_at",
+                              inputType: "Text",
+                              fieldId: "created_at",
+                              label: "created_at",
+                              name: "created_at",
+                              hidden: null
+                            },
+                            {
+                              key: "price",
+                              inputType: "Number",
+                              fieldId: "price",
+                              label: "price",
+                              name: "price"
+                            },
+                            {
+                              key: "price_per_additional",
+                              inputType: "Number",
+                              fieldId: "price_per_additional",
+                              label: "price_per_additional",
+                              name: "price_per_additional"
+                            },
+                            {
+                              key: "created_by",
+                              inputType: "Text",
+                              fieldId: "created_by",
+                              label: "created_by",
+                              name: "created_by",
+                              hidden: null
+                            },
+                            {
+                              key: "last_modified_at",
+                              inputType: "Text",
+                              fieldId: "last_modified_at",
+                              label: "last_modified_at",
+                              name: "last_modified_at",
+                              hidden: null
+                            },
+                            {
+                              key: "last_modified_by",
+                              inputType: "Text",
+                              fieldId: "last_modified_by",
+                              label: "last_modified_by",
+                              name: "last_modified_by",
+                              hidden: null
+                            },
+                            {
+                              key: "duration_estimate",
+                              inputType: "Text",
+                              fieldId: "duration_estimate",
+                              label: "duration_estimate",
+                              name: "duration_estimate"
+                            },
+                            {
+                              key: "category",
+                              inputType: "Text",
+                              fieldId: "category",
+                              label: "category",
+                              name: "category"
+                            },
+                            {
+                              key: "name",
+                              inputType: "Text",
+                              fieldId: "name",
+                              label: "name",
+                              name: "name"
+                            }
+                          ];
+
+                          __composite["0"]["hidden"] = true;
+                          __composite["1"]["hidden"] = true;
+                          __composite["4"]["hidden"] = true;
+                          __composite["5"]["hidden"] = true;
+                          __composite["6"]["hidden"] = true;
+                          return __composite;
+                        })(),
+                        formItems: [],
+                        labelCol: { span: 8, horizontalOnly: true },
+                        layout: "vertical",
+                        mode: "simplified",
+                        onFinish: async values => {
+                          const $steps = {};
+                          $steps["defaultSubmit"] = true
+                            ? (() => {
+                                const actionArgs = {};
+                                return (async ({ dataOp, continueOnError }) => {
+                                  try {
+                                    const response = await executePlasmicDataOp(
+                                      dataOp,
+                                      {
+                                        userAuthToken:
+                                          dataSourcesCtx?.userAuthToken,
+                                        user: dataSourcesCtx?.user
+                                      }
+                                    );
+                                    await plasmicInvalidate(
+                                      dataOp.invalidatedKeys
+                                    );
+                                    return response;
+                                  } catch (e) {
+                                    if (!continueOnError) {
+                                      throw e;
+                                    }
+                                    return e;
+                                  }
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["defaultSubmit"] != null &&
+                            typeof $steps["defaultSubmit"] === "object" &&
+                            typeof $steps["defaultSubmit"].then === "function"
+                          ) {
+                            $steps["defaultSubmit"] = await $steps[
+                              "defaultSubmit"
+                            ];
+                          }
+                        },
+                        submitSlot: (
+                          <AntdButton
+                            className={classNames(
+                              "__wab_instance",
+                              sty.button__iBj96
+                            )}
+                            submitsForm={true}
+                            type={"primary"}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__dAJ
+                              )}
+                            >
+                              {"Submit"}
+                            </div>
+                          </AntdButton>
+                        ),
+
+                        wrapperCol: { span: 16, horizontalOnly: true }
+                      };
+                      return <FormWrapper {...child$Props} />;
+                    })()}
+                    {(() => {
+                      const child$Props = {
+                        className: classNames(
+                          "__wab_instance",
+                          sty.table__gm1BT
+                        ),
+                        data: (() => {
+                          try {
+                            return $queries.getServices2;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
+                        rowActions: [{ type: "item" }],
+                        scopeClassName: sty["table__gm1BT__instance"],
+                        themeResetClassName: classNames(
+                          projectcss.root_reset,
+                          projectcss.root_reset_tags,
+                          projectcss.plasmic_default_styles,
+                          projectcss.plasmic_mixins,
+                          projectcss.plasmic_tokens,
+                          plasmic_antd_5_hostless_css.plasmic_tokens,
+                          plasmic_plasmic_rich_components_css.plasmic_tokens
+                        )
+                      };
+                      return <RichTable {...child$Props} />;
+                    })()}
                   </section>
                 ),
 

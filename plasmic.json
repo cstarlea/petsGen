@@ -7,7 +7,7 @@
   },
   "style": {
     "scheme": "css-modules",
-    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.css"
+    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.module.css"
   },
   "images": {
     "scheme": "public-files",
@@ -41,7 +41,8 @@
           "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "jkU633o1Cz7HrJdwdxhVHk",
@@ -95,7 +96,8 @@
           }
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "ohDidvG9XsCeFumugENU3J",
@@ -495,7 +497,8 @@
           "componentImportPath": "@plasmicpkgs/antd5/skinny/registerBreadcrumb"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "idSubxiPT9JaDBeACu7FTa",
@@ -530,6 +533,20 @@
           "cssFilePath": "plasmic/pets/PlasmicPageLayout.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "HoxdA5RSa1tP",
+          "name": "Dashboard",
+          "type": "managed",
+          "projectId": "idSubxiPT9JaDBeACu7FTa",
+          "renderModuleFilePath": "plasmic/pets/PlasmicDashboard.jsx",
+          "importSpec": {
+            "modulePath": "../pages/dashboard.jsx"
+          },
+          "cssFilePath": "plasmic/pets/PlasmicDashboard.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/dashboard"
         }
       ],
       "icons": [
